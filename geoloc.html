@@ -31,8 +31,8 @@
     <!-- This is new -->
     <div class="btn-group">
         <button type="button" id="allbus" class="btn btn-success">All</button>
-        <button type="button" id="others" class="btn btn-primary">Others</button>
-        <button type="button" id="cafes" class="btn btn-danger">Cafes</button>
+        <button type="button" id="others" class="btn btn-primary">Others pins</button>
+        <button type="button" id="pins" class="btn btn-danger">pins</button>
     </div>
 
     <div id="map"></div>
@@ -53,7 +53,7 @@
     var promise = $.getJSON("pins.json");
     promise.then(function(data) {
         var allbusinesses = L.geoJson(data);
-                var cafes = L.geoJson(data, {
+                var pins = L.geoJson(data, {
             filter: function(feature, layer) {
                 return feature.properties.BusType == "Cafe";
             },
@@ -79,19 +79,19 @@
         map.fitBounds(allbusinesses.getBounds(), {
             padding: [50, 50]
         });
-        cafes.addTo(map)
+        pins.addTo(map)
         others.addTo(map)
         // The JavaScript below is new
         $("#others").click(function() {
             map.addLayer(others)
-            map.removeLayer(cafes)
+            map.removeLayer(pins)
         });
-        $("#cafes").click(function() {
-            map.addLayer(cafes)
+        $("#pins").click(function() {
+            map.addLayer(pins)
             map.removeLayer(others)
         });
         $("#allbus").click(function() {
-            map.addLayer(cafes)
+            map.addLayer(pins)
             map.addLayer(others)
         });
     });
