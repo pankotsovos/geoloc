@@ -5,9 +5,9 @@
         {
             "type": "Feature",
             "properties": {
-                "Name": "Gimme! Coffee",
-                "BusType": "Cafe",
-                "Description": "Gimme espresso bars are found in New York City and Upstate New York."
+                "Name": "LOC1",
+                "BusType": "Pin",
+                "Description": "1st location"
 
             },
             "geometry": {
